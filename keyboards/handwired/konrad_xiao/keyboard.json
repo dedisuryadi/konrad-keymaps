@@ -1,0 +1,88 @@
+{
+    "keyboard_name": "Konrad XIAO RP2040",
+    "manufacturer": "QuadSmack",
+    "maintainer": "jrussellsmyth",
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "board": "GENERIC_RP_RP2040",
+    "usb": {
+        "vid": "0x7173",
+        "pid": "0x4B4C",
+        "device_version": "1.1.0"
+    },
+    "diode_direction": "COL2ROW",
+    "matrix_pins": {
+        "cols": ["GP4", "GP2", "GP3", "GP26", "GP27"],
+        "rows": ["GP28", "GP29", "GP6", "GP7"]
+    },
+    "split": {
+        "enabled": true,
+        "matrix_pins": {
+            "right": {
+                "cols": ["GP3", "GP4", "GP26", "GP28", "GP27"],
+                "rows": ["GP2", "GP29", "GP6", "GP7"]
+            }
+        },
+        "serial": {
+            "driver": "vendor"
+        },
+        "transport": {
+            "protocol": "serial"
+        }
+    },
+    "features": {
+        "bootmagic": true,
+        "extrakey": false,
+        "mousekey": true,
+        "nkro": true
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label": "Q",           "matrix": [0, 0], "x": 1,  "y": 1.15},
+                {"label": "W",           "matrix": [0, 1], "x": 2,  "y": 0.55},
+                {"label": "K",           "matrix": [0, 2], "x": 3,  "y": 0},
+                {"label": "P",           "matrix": [0, 3], "x": 4,  "y": 0.5},
+                {"label": "B",           "matrix": [0, 4], "x": 5,  "y": 0.68},
+                {"label": "J",           "matrix": [4, 0], "x": 9,  "y": 0.68},
+                {"label": "L",           "matrix": [4, 1], "x": 10, "y": 0.5},
+                {"label": "U",           "matrix": [4, 2], "x": 11, "y": 0},
+                {"label": "Y",           "matrix": [4, 3], "x": 12, "y": 0.55},
+                {"label": "Quote",       "matrix": [4, 4], "x": 13, "y": 1.15},
+
+                {"label": "Escape",      "matrix": [3, 1], "x": 0,  "y": 2.15},
+                {"label": "A / Ctrl",    "matrix": [1, 0], "x": 1,  "y": 2.15},
+                {"label": "R / Option",  "matrix": [1, 1], "x": 2,  "y": 1.55},
+                {"label": "S / Command", "matrix": [1, 2], "x": 3,  "y": 1},
+                {"label": "T / Shift",   "matrix": [1, 3], "x": 4,  "y": 1.5},
+                {"label": "G / Hyper",   "matrix": [1, 4], "x": 5,  "y": 1.68},
+                {"label": "M / Hyper",   "matrix": [5, 0], "x": 9,  "y": 1.68},
+                {"label": "N / Shift",   "matrix": [5, 1], "x": 10, "y": 1.5},
+                {"label": "E / Command", "matrix": [5, 2], "x": 11, "y": 1},
+                {"label": "I / Option",  "matrix": [5, 3], "x": 12, "y": 1.55},
+                {"label": "O / Ctrl",    "matrix": [5, 4], "x": 13, "y": 2.15},
+                {"label": "Semicolon",   "matrix": [7, 1], "x": 14, "y": 2.15},
+
+                {"label": "Left Shift",  "matrix": [3, 0], "x": 0,  "y": 3.15},
+                {"label": "Z",           "matrix": [2, 0], "x": 1,  "y": 3.15},
+                {"label": "X",           "matrix": [2, 1], "x": 2,  "y": 2.55},
+                {"label": "C",           "matrix": [2, 2], "x": 3,  "y": 2},
+                {"label": "D",           "matrix": [2, 3], "x": 4,  "y": 2.5},
+                {"label": "V",           "matrix": [2, 4], "x": 5,  "y": 2.68},
+                {"label": "F",           "matrix": [6, 0], "x": 9,  "y": 2.68},
+                {"label": "H",           "matrix": [6, 1], "x": 10, "y": 2.5},
+                {"label": "Comma",       "matrix": [6, 2], "x": 11, "y": 2},
+                {"label": "Period",      "matrix": [6, 3], "x": 12, "y": 2.55},
+                {"label": "Slash",       "matrix": [6, 4], "x": 13, "y": 3.15},
+                {"label": "Right Shift", "matrix": [7, 0], "x": 14, "y": 3.15},
+
+                {"label": "Mouse Left",  "matrix": [3, 2], "x": 3.35, "y": 3.85, "r": 5,   "rx": 3.35, "ry": 3.85},
+                {"label": "Space",       "matrix": [3, 3], "x": 4.45, "y": 4.08, "r": 15,  "rx": 4.45, "ry": 4.08},
+                {"label": "Tab",         "matrix": [3, 4], "x": 5.45, "y": 4.55, "r": 28,  "rx": 5.45, "ry": 4.55},
+                {"label": "Backspace",   "matrix": [7, 2], "x": 7.55, "y": 4.55, "r": -28, "rx": 7.55, "ry": 4.55},
+                {"label": "Enter",       "matrix": [7, 3], "x": 8.55, "y": 4.08, "r": -15, "rx": 8.55, "ry": 4.08},
+                {"label": "Delete",      "matrix": [7, 4], "x": 9.65, "y": 3.85, "r": -5,  "rx": 9.65, "ry": 3.85}
+            ]
+        }
+    }
+}

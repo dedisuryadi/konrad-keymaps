@@ -1,0 +1,4 @@
+.qmk_firmware/
+.vial-qmk/
+build/
+.DS_Store

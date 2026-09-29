@@ -1,0 +1,64 @@
+Create a konrad qmk vial keymap using xiao RP2040, also setup via.json
+
+Wiring Left Side:
+
+D0  COL4
+D1  COL5
+D2  ROW1
+D3  ROW2
+D4  ROW3
+D5  ROW4
+D6  SPLIT D-
+
+VBUS    SPLIT V
+GND     SPLIT GND
+3.3V
+D10 COL3
+D9  COL1
+D8  COL2
+D7  SPLIT D+
+
+
+                  Q (COL1+ROW1)   W  (COL2+ROW1)  K (COL3+ROW1) P (COL4+ROW1) B (COL5+ROW1)
+ESC (ROW4+COL2)     A (COL1+ROW2)   R  (COL2+ROW2)  S (COL3+ROW2) T (COL4+ROW2) G (COL5+ROW2)
+LSHIFT (ROW4+COL1)    Z (COL1+ROW3)   X  (COL2+ROW3)  C (COL3+ROW3) D (COL4+ROW3) V (COL5+ROW3)
+
+                                                         MOUSE LEFT (COL3+ROW4) SPACE (COL4+ROW4) TAB (COL5+ROW4)
+
+A = ON TAP / CTL = ON HOLD
+R = ON TAP / OPT = ON HOLD
+S = ON TAP / CMD = ON HOLD
+T = ON TAP / LSHFT = ON HOLD
+G = ON TAP / CTL+OPT+CMD+LSHFT = ON HOLD
+
+
+Wiring Right Side:
+
+D0  COL8
+D1  COL10
+D2  COL9
+D3  ROW2
+D4  ROW3
+D5  ROW4
+D6  SPLIT D+
+
+VBUS    SPLIT V
+GND     SPLIT GND
+3.3V
+D10 COL6
+D9  COL7
+D8  ROW1
+D7  SPLIT D-
+
+
+                            J (COL6+ROW1)   L  (COL7+ROW1)  U (COL8+ROW1) Y (COL9+ROW1) ' (COL10+ROW1)
+                            M (COL6+ROW2)   N  (COL7+ROW2)  E (COL8+ROW2) I (COL9+ROW2) O (COL10+ROW2) ; (ROW4+COL7)
+                            F (COL6+ROW3)   H  (COL7+ROW3)  , (COL8+ROW3) . (COL9+ROW3) / (COL10+ROW3) RSHIFT (ROW4+COL6)
+
+BACKSPACE (COL8+ROW4) ENTER (COL9+ROW4) DEL (COL10+ROW4)
+
+O = ON TAP / CTL = ON HOLD
+I = ON TAP / OPT = ON HOLD
+E = ON TAP / CMD = ON HOLD
+N = ON TAP / LSHFT = ON HOLD
+M = ON TAP / CTL+OPT+CMD+LSHFT = ON HOLD
