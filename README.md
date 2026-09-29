@@ -44,6 +44,16 @@ Any other positional argument exits with:
 The script only builds firmware and copies the UF2; it does not flash a
 controller.
 
+### Edit the keymap
+
+The default, VIA, and Vial builds all use the same keymap source:
+
+    keyboards/handwired/konrad_xiao/keymaps/keymap.c
+
+Edit that file to change the layout. The small `keymap.c` file in each build
+variant only includes the shared source; variant-specific feature settings stay
+in that variant's `config.h` and `rules.mk`.
+
 ### Build outputs
 
 | Target | Output |

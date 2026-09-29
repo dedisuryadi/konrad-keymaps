@@ -2,3 +2,4 @@
 .vial-qmk/
 build/
 .DS_Store
+*.png
