@@ -19,58 +19,37 @@ No local QMK toolchain is required. Start in this package directory:
 
     cd konrad-keymaps
 
-### Build targets
+### Build target
 
-The runner accepts one optional positional argument. With no argument it builds
-the recommended Vial firmware:
+The project has one firmware target: Vial-QMK with both Vial and VIA dynamic
+keymap support. Build it with:
 
-| Command | Target | Configuration |
-| --- | --- | --- |
-| ./build.sh | vial | Vial-QMK with an embedded Vial definition |
-| ./build.sh default | default | Explicit form of the standard QMK build |
-| ./build.sh via | via | QMK with VIA dynamic keymap support |
-| ./build.sh vial | vial | Explicit form of the Vial build |
+    ./build.sh
 
-To build every variant:
-
-    for target in default via vial; do
-        ./build.sh "$target"
-    done
-
-Any other positional argument exits with:
-
-    usage: ./build.sh [default|via|vial]
+The runner does not accept positional arguments.
 
 The script only builds firmware and copies the UF2; it does not flash a
 controller.
 
 ### Edit the keymap
 
-The default, VIA, and Vial builds all use the same keymap source:
+Edit the Vial keymap source to change the layout:
 
-    keyboards/handwired/konrad_xiao/keymaps/keymap.c
+    keyboards/handwired/konrad_xiao/keymaps/vial/keymap.c
 
-Edit that file to change the layout. The small `keymap.c` file in each build
-variant only includes the shared source; variant-specific feature settings stay
-in that variant's `config.h` and `rules.mk`.
+### Build output
 
-### Build outputs
+The generated firmware is:
 
-| Target | Output |
-| --- | --- |
-| default | build/handwired_konrad_xiao_default.uf2 |
-| via | build/handwired_konrad_xiao_via.uf2 |
-| vial | build/handwired_konrad_xiao_vial.uf2 |
+    build/handwired_konrad_xiao_vial.uf2
 
-The QMK keyboard path is handwired/konrad_xiao. Every artifact contains both
-halves. Flash one selected target to both XIAOs; do not mix targets between
-halves.
+The QMK keyboard path is handwired/konrad_xiao. The artifact contains both
+halves; flash the same UF2 to both XIAOs.
 
 ### Source caches and updates
 
-Default and VIA builds use current upstream QMK master cached in
-.qmk_firmware. Vial builds use the current Vial-QMK vial branch cached in
-.vial-qmk. On every build, the runner:
+The build uses the current Vial-QMK `vial` branch cached in `.vial-qmk`. On
+every build, the runner:
 
 1. Clones the selected source tree and its submodules when the cache is absent.
 2. Otherwise performs a fast-forward-only pull and updates submodules.
@@ -88,8 +67,6 @@ All configuration is optional:
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| QMK_DIR | .qmk_firmware | Upstream QMK source/cache directory |
-| QMK_REPO | https://github.com/qmk/qmk_firmware.git | Upstream QMK repository |
 | VIAL_QMK_DIR | .vial-qmk | Vial-QMK source/cache directory |
 | VIAL_QMK_REPO | https://github.com/vial-kb/vial-qmk.git | Vial-QMK repository |
 | VIAL_QMK_BRANCH | vial | Branch cloned for Vial builds |
@@ -100,17 +77,16 @@ Examples:
 
 Build Vial into a temporary output directory:
 
-    OUTPUT_DIR=/tmp/konrad-build ./build.sh vial
+    OUTPUT_DIR=/tmp/konrad-build ./build.sh
 
-Use existing source checkouts:
+Use an existing source checkout:
 
-    QMK_DIR=/path/to/qmk_firmware ./build.sh via
-    VIAL_QMK_DIR=/path/to/vial-qmk ./build.sh vial
+    VIAL_QMK_DIR=/path/to/vial-qmk ./build.sh
 
 Pin a specific Docker image or Vial branch:
 
-    QMK_IMAGE=my-registry/qmk-cli:version ./build.sh default
-    VIAL_QMK_BRANCH=my-vial-branch ./build.sh vial
+    QMK_IMAGE=my-registry/qmk-cli:version ./build.sh
+    VIAL_QMK_BRANCH=my-vial-branch ./build.sh
 
 Environment overrides apply to one invocation unless exported by the shell.
 
@@ -208,10 +184,11 @@ disconnect host USB before connecting or disconnecting the inter-half cable.
 
 ## VIA
 
-Flash build/handwired_konrad_xiao_via.uf2, then open the VIA web app. As
-this keyboard definition is not published in VIA's keyboard repository, enable
-the Design tab, select Load Draft Definition, and load via.json from this
-directory. VIA provides four remappable layers by default.
+Flash `build/handwired_konrad_xiao_vial.uf2`, then open the VIA web app. The
+Vial firmware also supports the VIA protocol. As this keyboard definition is
+not published in VIA's keyboard repository, enable the Design tab, select Load
+Draft Definition, and load `via.json` from this directory. VIA provides four
+remappable layers by default.
 
 The local-development USB identity is VID 0x7173, PID 0x4B4C; these values must
 remain identical in keyboard.json and via.json. Obtain an assigned VID/PID
@@ -222,7 +199,7 @@ new 8×5 split dynamic keymap instead of retaining the previous 4×5 data.
 
 ## Vial
 
-Flash build/handwired_konrad_xiao_vial.uf2, then open the Vial app. The
+Flash `build/handwired_konrad_xiao_vial.uf2`, then open the Vial app. The
 full split definition is embedded in the firmware, so it does not need to be
 sideloaded.
 
