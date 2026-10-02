@@ -179,8 +179,11 @@ connection. The two signal conductors are deliberately crossed:
 | VBUS | Split V | VBUS |
 | GND | Split GND | GND |
 
-Leave 3.3V unconnected. Because the link carries VBUS, it is not hot-pluggable:
-disconnect host USB before connecting or disconnecting the inter-half cable.
+Leave 3.3V unconnected. A correctly wired four-conductor USB-C split link is
+generally safe to hot-plug, with VBUS and GND on the standard USB power and
+ground contacts. USB-C avoids the sliding-contact shorts associated with TRRS
+connectors, carrying VBUS does not prevent hot-plugging. QMK retries the split
+connection when the other half is reconnected.
 
 ## VIA
 
